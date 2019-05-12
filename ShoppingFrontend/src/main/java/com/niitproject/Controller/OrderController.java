@@ -63,7 +63,14 @@ public String PaymentConfirm(HttpSession session,@RequestParam("payment")String 
 	orderdetail.setShippingAddr(ShippingAddress);
 	orderDetailDAO.confirmOrder(orderdetail);
 	
+	List<Cart> listpaidCarts=cartDAO.getPaidCarts(username);
+	for(Cart cart3:listpaidCarts)
+	{
+			Cart cart4=cartDAO.getCart(cart3.getCartId());
+			cart4.setPaymentStatus("Paid");
+			cartDAO.updateCart(cart4);
 	
+	}
 	List<OrderDetail> listOrderDetail=orderDetailDAO.getOrderDetail(username);
 	
 	int id=0;
@@ -74,13 +81,14 @@ public String PaymentConfirm(HttpSession session,@RequestParam("payment")String 
 			}
 	}
 	
-	m.addAttribute("listOrderDetail",listOrderDetail);
+	
 	
 	OrderDetail orderdetail2=orderDetailDAO.getOrderId(id); 
 	m.addAttribute("orderdetail",orderdetail2);
 	
 	return "Final";
 }
+
 
 
 public double grandTotal(List<Cart> listCarts)

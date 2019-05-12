@@ -18,6 +18,7 @@
 <%@ include file="HeaderAdmin.jsp"%>
 <div class="container">
 <table class="table table-hover">
+<tr>
 <td>Product Image</td>
 <td>Product Name</td>
 <td>Product Price</td>
@@ -49,12 +50,10 @@ ${alert}
 <td>${grandtotal}</td>
 <td></td>
 </tr>
-<center>
 <tr>
 <td>
 <a href="<c:url value="/confirmorder"/>" class="btn btn-success">Proceed to Buy</a></td>
 </tr>
-</center>
 </table>
 </div>
 </body>
