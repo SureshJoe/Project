@@ -38,7 +38,7 @@ public class CategoryDAOTest {
 		assertNotNull("Problem in get Category",categoryDAO.getCategory(2));
 	}
 	
-	
+	@Ignore
 	@Test
 	public void deleteCategoryTest()
 	{
@@ -50,11 +50,11 @@ public class CategoryDAOTest {
 	@Test
 	public void updateCategoryTest()
 	{
-		Category category=categoryDAO.getCategory(2);
+		Category category=categoryDAO.getCategory(227);
 		category.setCategoryName("Bikes");
 		assertTrue("Problem in Updation",categoryDAO.updateCategory(category));
 	}
-
+	
 	@Test
 	public void listCategoriesTest()
 	{
